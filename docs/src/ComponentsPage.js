@@ -230,6 +230,10 @@ var ComponentsPage = React.createClass({
                     )}
                   </pre>
                   <ReactPlayground codeText={fs.readFileSync(__dirname + '/../examples/ModalContained.js', 'utf8')} />
+
+                  <h3 id="modals-sticky">Sticky Modal</h3>
+                  <p>Use the <code>sticky</code> prop to prevent the modal from being dismissed when the user clicks the backdrop.</p>
+                  <ReactPlayground codeText={fs.readFileSync(__dirname + '/../examples/ModalSticky.js', 'utf8')} />
                 </div>
 
                 {/* Tooltip */}
