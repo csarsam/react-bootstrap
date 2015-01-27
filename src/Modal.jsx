@@ -22,7 +22,8 @@ var Modal = React.createClass({
     keyboard: React.PropTypes.bool,
     closeButton: React.PropTypes.bool,
     animation: React.PropTypes.bool,
-    onRequestHide: React.PropTypes.func.isRequired
+    onRequestHide: React.PropTypes.func.isRequired,
+    sticky: React.PropTypes.bool
   },
 
   getDefaultProps: function () {
@@ -31,7 +32,8 @@ var Modal = React.createClass({
       backdrop: true,
       keyboard: true,
       animation: true,
-      closeButton: true
+      closeButton: true,
+      sticky: false
     };
   },
 
@@ -149,7 +151,9 @@ var Modal = React.createClass({
       return;
     }
 
-    this.props.onRequestHide();
+    if (!this.props.sticky) {
+      this.props.onRequestHide();
+    }
   },
 
   handleDocumentKeyUp: function (e) {
