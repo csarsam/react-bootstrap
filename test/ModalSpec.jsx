@@ -85,4 +85,15 @@ describe('Modal', function () {
     assert.ok(dialog.className.match(/\bmodal-sm\b/));
   });
 
+  it('Should not close the modal when the backdrop is clicked and sticky is true', function () {
+    var instance = ReactTestUtils.renderIntoDocument(
+      <Modal onRequestHide={doneOp} sticky={true}>
+        <strong>Message</strong>
+      </Modal>
+    );
+
+    var backdrop = instance.getDOMNode().getElementsByClassName('modal-backdrop')[0];
+    ReactTestUtils.Simulate.click(backdrop);
+    assert.ok(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'strong'));
+  });
 });
